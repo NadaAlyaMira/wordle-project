@@ -13,7 +13,7 @@ function App() {
   const handleGuess = async () => {
     if (guess.length !== 5 || gameOver) return;
 
-    const res = await fetch('http://localhost:5000/api/guess', {
+    const res = await fetch('https://wordle-backend-fvakdpguh9dccydr.uaenorth-01.azurewebsites.net/api/guess', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ guess })
@@ -41,7 +41,7 @@ function App() {
   };
 
   const startNewGame = async () => {
-    await fetch('http://localhost:5000/api/word');
+    await fetch('https://wordle-backend-fvakdpguh9dccydr.uaenorth-01.azurewebsites.net/api/word');
     setHistory([]);
     setFeedbackList([]);
     setUsedKeys({});
