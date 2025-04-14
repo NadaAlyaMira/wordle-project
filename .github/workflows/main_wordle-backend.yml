@@ -68,4 +68,4 @@ jobs:
         with:
           app-name: 'wordle-backend'
           slot-name: 'Production'
-          package: ./backend
+          package: .
