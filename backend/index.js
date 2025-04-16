@@ -44,12 +44,16 @@ app.get('/api/word', (req, res) => {
 
 app.post('/api/guess', (req, res) => {
   const { guess } = req.body;
-  if (!guess || guess.length !== 5) {
+
+  // ✅ Safer check: ensure it's a string of length 5
+  if (typeof guess !== 'string' || guess.length !== 5) {
     return res.status(400).json({ error: 'Guess must be a 5-letter word.' });
   }
+
   const feedback = getFeedback(guess.toUpperCase(), answer);
   res.json({ feedback });
 });
+
 
 app.listen(PORT, () => {
   console.log(`✅ Server running on http://localhost:${PORT}`);
